@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:note_app/controller/note_screen_controller.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NoteCardWidget extends StatelessWidget {
   const NoteCardWidget(
@@ -71,7 +72,11 @@ class NoteCardWidget extends StatelessWidget {
                     SizedBox(
                       width: 15,
                     ),
-                    Icon(Icons.share)
+                    InkWell(
+                        onTap: () {
+                          Share.share(description, subject: title);
+                        },
+                        child: Icon(Icons.share))
                   ],
                 )
               ],
